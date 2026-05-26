@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>將人 Machill麻將風雲</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 潮流感毛玻璃導覽列 -->
+    <nav class="navbar">
+        <div class="logo">將人 <span>machill</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">關於世界觀</a></li>
+            <li><a href="#feed">頻道動態</a></li>
+            <li><a href="#videos">熱門影音</a></li>
+            <li><a href="#community">玩家投稿</a></li>
+        </ul>
+    </nav>
+
+    <!-- 視覺強烈的大英雄區塊 -->
+    <header class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content">
+            <span class="badge">🀄 古老智慧 × 年輕靈魂</span>
+            <h1>將人 Machill麻將風雲<br><span class="highlight">年輕人的國粹新篇章</span></h1>
+            <p>最熱血的牌局在這裡上演。不管你是麻將老手還是新手村民，這裡都是你的主場！</p>
+            <div class="cta-buttons">
+                <a href="https://youtube.com/@majong_machill" target="_blank" class="btn btn-primary">訂閱頻道 🔔</a>
+                <a href="#videos" class="btn btn-secondary">觀看最新影音 📡</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 關於我們 -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2>歡迎來到 將人 machill 的世界！</h2>
+            <p>我們用最活潑、最潮的方式，帶你走進牌桌上的智慧與歡笑。</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card item-1">
+                <div class="card-icon">🀄</div>
+                <h3>精彩直播</h3>
+                <p>實時牌局，高手過招，緊張刺激不停歇。即時開打，等你來發言！</p>
+            </div>
+            <div class="feature-card item-2">
+                <div class="card-icon">🎬</div>
+                <h3>熱門影片</h3>
+                <p>精選教學與對局回放，隨時複習精彩瞬間，輕鬆速成麻將大師。</p>
+            </div>
+            <div class="feature-card item-3">
+                <div class="card-icon">💬</div>
+                <h3>社群互動</h3>
+                <p>與主播和全台牌友即時交流，一起討論戰術，牌桌上不孤單！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頻道動態與公告：串接 Google 試算表動態生成 -->
+    <section id="feed" class="section alt-bg">
+        <div class="section-header">
+            <span class="sub-title">DYNAMIC FEED</span>
+            <h2>頻道動態與公告</h2>
+            <p>即時同步雲端試算表！關注最新賽事公告、活動預告與牌局深度分析。</p>
+        </div>
+
+        <div class="news-masonry" id="news-masonry-container">
+            <div class="loading-placeholder">動態公告載入中... Please wait 🀄</div>
+        </div>
+    </section>
+
+    <!-- 影音專區 -->
+    <section id="videos" class="section">
+        <div class="section-header">
+            <h2>熱門影片與實時直播</h2>
+            <p>API 自動同步！精選頻道中最新、最受歡迎的麻將對局，上片即刻同步更新！</p>
+        </div>
+
+        <div class="video-grid" id="video-grid-container">
+            <div class="loading-placeholder">最新影音同步中... Please wait 🎬</div>
+        </div>
+    </section>
+
+    <!-- 玩家投稿區 -->
+    <section id="community" class="section alt-bg">
+        <div class="container-split">
+            <div class="form-info">
+                <h2>玩家互動區：<br>安全雲端表單投稿</h2>
+                <p>有精彩牌局故事想分享嗎？請填寫右側表單。為了防止惡意篡改與垃圾訊息，您的投稿將通過安全後台加密處理！</p>
+                
+                <div class="share-tips">
+                    <h5>🔒 資安防禦機制：</h5>
+                    <p style="font-size: 0.9rem; color: #475569;">本站採用讀寫分離架構，粉絲僅能填寫表單，無權直接修改或刪除官網資料庫，100% 阻絕惡意攻擊與腳本注入。</p>
+                </div>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="submission-form" class="modern-form">
+                    <div class="form-group">
+                        <label for="title">貼文標題</label>
+                        <input type="text" id="title" name="title" placeholder="請輸入令人印象深刻的標題" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">故事內容</label>
+                        <textarea id="content" name="content" rows="4" placeholder="分享你的麻將故事或心得技巧..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">安全送出投稿 🎉</button>
+                    <div id="form-message" class="form-alert"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 現代感頁尾 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>加入我們，一起「麻」煩不斷！</h2>
+            <p>一張牌的距離，就是你與整個麻將社群的距離。訂閱頻道、分享故事、與牌友同樂！</p>
+            <a href="https://youtube.com/@majong_machill" target="_blank" class="btn btn-primary">前往 YouTube 頻道 🀄</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 將人 Machill麻將風雲. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

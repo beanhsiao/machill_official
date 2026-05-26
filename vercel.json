@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "pages": [
+    { "src": "/api/youtube", "dest": "/api/youtube.js" }
+  ]
+}
