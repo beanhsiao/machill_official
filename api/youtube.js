@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
 
     const apiKey = process.env.YOUTUBE_API_KEY;
-    const channelId = process.env.YOUTUBE_CHANNEL_ID || 'UCxxxxxx'; 
+    const channelId = process.env.YOUTUBE_CHANNEL_ID || 'UCs9JAqRPV60o0B10zC40zDQ'; 
 
     if (!apiKey) {
         return res.status(200).json({ 

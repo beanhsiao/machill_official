@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>將人 Machill麻將風雲</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=400;500;700;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- 潮流感毛玻璃導覽列 -->
@@ -40,7 +43,7 @@
             <h2>歡迎來到 將人 machill 的世界！</h2>
             <p>我們用最活潑、最潮的方式，帶你走進牌桌上的智慧與歡笑。</p>
         </div>
-        
+
         <div class="features-grid">
             <div class="feature-card item-1">
                 <div class="card-icon">🀄</div>
@@ -91,22 +94,28 @@
             <div class="form-info">
                 <h2>玩家互動區：<br>安全雲端表單投稿</h2>
                 <p>有精彩牌局故事想分享嗎？請填寫右側表單。為了防止惡意篡改與垃圾訊息，您的投稿將通過安全後台加密處理！</p>
-                
+
                 <div class="share-tips">
                     <h5>🔒 資安防禦機制：</h5>
-                    <p style="font-size: 0.9rem; color: #475569;">本站採用讀寫分離架構，粉絲僅能填寫表單，無權直接修改或刪除官網資料庫，100% 阻絕惡意攻擊與腳本注入。</p>
+                    <p style="font-size: 0.9rem; color: #475569;">本站採用讀寫分離架構，粉絲僅能填寫表單，無權直接修改或刪除官網資料庫，100% 阻絕惡意攻擊與腳本注入。
+                    </p>
                 </div>
             </div>
 
             <div class="form-wrapper">
                 <form id="submission-form" class="modern-form">
                     <div class="form-group">
+                        <label for="nickname">玩家暱稱（留空則以「匿名」送出）</label>
+                        <input type="text" id="nickname" placeholder="例如：麻將俠、背骨仔（選填）">
+                    </div>
+                    <div class="form-group">
                         <label for="title">貼文標題</label>
                         <input type="text" id="title" name="title" placeholder="請輸入令人印象深刻的標題" required>
                     </div>
                     <div class="form-group">
                         <label for="content">故事內容</label>
-                        <textarea id="content" name="content" rows="4" placeholder="分享你的麻將故事或心得技巧..." required></textarea>
+                        <textarea id="content" name="content" rows="4" placeholder="分享你的麻將故事或心得技巧..."
+                            required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">安全送出投稿 🎉</button>
                     <div id="form-message" class="form-alert"></div>
@@ -130,4 +139,5 @@
     <script src="https://apis.google.com/js/platform.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
