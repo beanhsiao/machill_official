@@ -89,40 +89,34 @@
     </section>
 
     <!-- 玩家投稿區 -->
-    <section id="community" class="section alt-bg">
-        <div class="container-split">
-            <div class="form-info">
-                <h2>玩家互動區：<br>安全雲端表單投稿</h2>
-                <p>有精彩牌局故事想分享嗎？請填寫右側表單。為了防止惡意篡改與垃圾訊息，您的投稿將通過安全後台加密處理！</p>
+    <section id="interaction-section" class="section">
+    <h2>🀄 玩家交流留言板</h2>
+    <p class="section-subtitle">歡迎在這裡分享你的麻將心得、趣味故事，或向大家問好！</p>
+    
+    <div id="messages-container" class="messages-grid">
+        <div class="loading-text">最新留言同步中... Please wait 💬</div>
+    </div>
 
-                <div class="share-tips">
-                    <h5>🔒 資安防禦機制：</h5>
-                    <p style="font-size: 0.9rem; color: #475569;">本站採用讀寫分離架構，粉絲僅能填寫表單，無權直接修改或刪除官網資料庫，100% 阻絕惡意攻擊與腳本注入。
-                    </p>
-                </div>
+    <div class="form-wrapper">
+        <form id="submission-form" class="modern-form">
+            <h3>發表新留言 ✏️</h3>
+            <div class="form-group">
+                <label for="nickname">玩家暱稱</label>
+                <input type="text" id="nickname" placeholder="例如：麻將俠、背骨仔（留空則以「匿名」送出）">
             </div>
-
-            <div class="form-wrapper">
-                <form id="submission-form" class="modern-form">
-                    <div class="form-group">
-                        <label for="nickname">玩家暱稱（留空則以「匿名」送出）</label>
-                        <input type="text" id="nickname" placeholder="例如：麻將俠、背骨仔（選填）">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">貼文標題</label>
-                        <input type="text" id="title" name="title" placeholder="請輸入令人印象深刻的標題" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="content">故事內容</label>
-                        <textarea id="content" name="content" rows="4" placeholder="分享你的麻將故事或心得技巧..."
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">安全送出投稿 🎉</button>
-                    <div id="form-message" class="form-alert"></div>
-                </form>
+            <div class="form-group">
+                <label for="title">留言主題</label>
+                <input type="text" id="title" placeholder="請輸入留言的主題" required>
             </div>
-        </div>
-    </section>
+            <div class="form-group">
+                <label for="content">留言內容</label>
+                <textarea id="content" rows="4" placeholder="留下你想對大家說的話..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">發送留言 🎉</button>
+            <div id="form-message" class="form-alert"></div>
+        </form>
+    </div>
+</section>
 
     <!-- 現代感頁尾 -->
     <footer class="footer">

@@ -164,6 +164,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 1. 設定您提供的全新 Google 試算表 ID
+    const MESSAGE_SPREADSHEET_ID = '1fpsUzvGjYxDbfxg_EIRu3nT2pA_sGmsgVijNHcTe5-k';
+    const MESSAGE_FETCH_URL = `https://docs.google.com/spreadsheets/d/${MESSAGE_SPREADSHEET_ID}/gviz/tq?tqx=out:json`;
+
+    // 2. 自動異步撈取 Google 表單內的留言資料
+    async function fetchBoardMessages() {
+        const container = document.getElementById('messages-container');
+        if (!container) return;
+
+        try {
+            const response = await fetch(MESSAGE_FETCH_URL);
+            const text = await response.text();
+
+            // 擷取 Google 吐出的標準 JSON 字串
+            const jsonStr = text.substring(text.indexOf("{"), text.lastIndexOf("}") + 1);
+            const data = JSON.parse(jsonStr);
+            const rows = data.table.rows;
+
+            // 如果目前完全沒有人留言
+            if (!rows || rows.length === 0) {
+                container.innerHTML = '<div class="no-messages">目前還沒有留言，快來搶沙發發表第一條留言吧！💬</div>';
+                return;
+            }
+
+            container.innerHTML = ''; // 清空「同步中」的提示字
+
+            // 將陣列反轉（讓最新填寫的留言顯示在最上面）
+            const newestMessages = [...rows].reverse();
+
+            newestMessages.forEach(row => {
+                // 解析 Google 表單欄位：0=時間戳記, 1=玩家暱稱, 2=留言主題, 3=留言內容
+                const rawDate = row.c[0]?.f || row.c[0]?.v || '';
+                const date = rawDate.split(' ')[0]; // 只精簡擷取 YYYY/MM/DD 日期部分
+
+                const nickname = row.c[1]?.v || '匿名玩家';
+                const title = row.c[2]?.v || '無主題';
+                const content = row.c[3]?.v || '';
+
+                // 建立一模一樣大小的卡片節點
+                const card = document.createElement('div');
+                card.className = 'message-card';
+                card.innerHTML = `
+                <div>
+                    <div class="message-header">
+                        <span class="message-author">👤 ${nickname}</span>
+                        <span class="message-date">${date}</span>
+                    </div>
+                    <div class="message-body">
+                        <h4>${title}</h4>
+                        <p>${content}</p>
+                    </div>
+                </div>
+            `;
+                container.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error('留言板同步失敗:', error);
+            container.innerHTML = '<div class="no-messages">⚠️ 留言載入失敗，請檢查網路連線。</div>';
+        }
+    }
+
+    // 💡 提示：請確保在您的網頁初始化總開關（如先前寫的 initWebsite() 或 DOMContentLoaded 監聽器內）
+    // 加上這行呼叫，網頁一打開才會自動載入留言：
+    fetchBoardMessages();
+
     loadAnnouncements();
     loadYouTubeVideos();
 });
